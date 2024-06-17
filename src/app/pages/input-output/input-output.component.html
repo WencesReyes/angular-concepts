@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <section class="col-md-6">
+      <ul>
+        @for(city of cities; track city.id; let idx = $index ) {
+        <app-city-item
+          [classNames]="[selectedCityId === city.id ? 'selected' : '']"
+          [city]="city"
+          (click)="onSelectCity(city.id)"
+        />
+
+        }
+      </ul>
+
+      <div *ngIf="selectedCityId">
+        <app-button (click)="onCancelSelection()" [props]="buttonProps" />
+      </div>
+    </section>
+
+    <section class="col-md-6">
+      <app-add-city-form (addCityEvent)="addCity($event)" />
+    </section>
+  </div>
+</div>

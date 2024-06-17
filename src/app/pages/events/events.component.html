@@ -1,0 +1,18 @@
+<section>
+  <ul>
+    @for(city of cities; track city.id; let idx = $index ) {
+    <li
+      [ngClass]="{
+        selected: selectedCityId === city.id
+      }"
+      (click)="onSelectCity(city.id)"
+    >
+      {{ city.name }} | population: {{ city.population }}
+    </li>
+    }
+  </ul>
+
+  <div>
+    <button (click)="onCancelSelection()">Cancel</button>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+<section>
+  <ul>
+    @for(city of cities; track city.id; let idx = $index ) {
+    <li
+      [ngClass]="{
+        odd: idx % 2 !== 0,
+        even: idx % 2 === 0
+      }"
+      [ngStyle]="{
+        'font-family': idx % 2 === 0 ? 'roboto' : 'sans-serif'
+      }"
+    >
+      {{ city.name }} | population: {{ city.population }}
+
+      @if(city.population > 15) {
+      <strong [class.higher]="city.population > 30">High population</strong>
+      } @else {
+      <small>Low population</small>
+      }
+    </li>
+
+    }
+  </ul>
+</section>

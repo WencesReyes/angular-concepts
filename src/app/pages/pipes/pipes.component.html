@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name (upper)</th>
+      <th scope="col">Name (title case | lower)</th>
+      <th scope="col">Name (custom first)</th>
+      <th scope="col">Name (custo last)</th>
+      <th scope="col">Salary (money)</th>
+      <th scope="col">Hire date (date)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees; trackBy: trackByEmployees">
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.name | uppercase }}</td>
+      <td>{{ employee.name | titlecase | lowercase }}</td>
+      <td>{{ employee.name | fisrtLastWord : "first" }}</td>
+      <td>{{ employee.name | fisrtLastWord : "last" }}</td>
+      <td>{{ employee.salary | currency : "USD" : "symbol" : "1.2-2" }}</td>
+      <td>{{ employee.hireDate | date : "yyyy-MM-dd" }}</td>
+    </tr>
+  </tbody>
+</table>
