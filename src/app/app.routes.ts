@@ -10,6 +10,11 @@ import { ReactiveFormComponent } from './pages/reactive-form/reactive-form.compo
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/binding-concept',
+    pathMatch: 'full'
+  },
+  {
     path: 'binding-concept',
     component: BindingComponent,
     title: 'Binding concept',
