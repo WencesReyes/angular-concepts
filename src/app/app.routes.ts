@@ -7,12 +7,17 @@ import { InputOutputComponent } from './pages/input-output/input-output.componen
 import { PipesComponent } from './pages/pipes/pipes.component';
 import { TemplateFormComponent } from './pages/template-form/template-form.component';
 import { ReactiveFormComponent } from './pages/reactive-form/reactive-form.component';
+import { MoreRoutingComponent } from './pages/more-routing/more-routing.component';
+import { HeroDatailComponent } from './pages/more-routing/pages/hero-datail/hero-datail.component';
+import { Child1Component } from './pages/more-routing/pages/child-1/child-1.component';
+import { Child2Component } from './pages/more-routing/pages/child-2/child-2.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
   {
     path: '',
     redirectTo: '/binding-concept',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'binding-concept',
@@ -53,5 +58,32 @@ export const routes: Routes = [
     path: 'reactive-form',
     component: ReactiveFormComponent,
     title: 'Reactive form',
+  },
+  {
+    path: 'more-routing',
+    component: MoreRoutingComponent,
+    title: 'More about routing',
+    children: [
+      {
+        path: '',
+        component: Child1Component,
+        title: 'child-1',
+      },
+      {
+        path: 'child-2',
+        component: Child2Component,
+        title: 'child-2',
+      },
+    ],
+  },
+  {
+    path: 'hero-detail/:id',
+    component: HeroDatailComponent,
+    title: 'Hero detail',
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
+    title: 'Not found',
   },
 ];

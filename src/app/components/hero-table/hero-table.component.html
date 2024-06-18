@@ -1,0 +1,22 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Brand ID</th>
+        <th>Elite Status</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hero of heroes">
+        <td>{{ hero.id }}</td>
+        <td>{{ hero.name }}</td>
+        <td>{{ hero.brandId }}</td>
+        <td>{{ hero.isElite ? 'Yes' : 'No' }}</td>
+        <td>{{ hero.description }}</td>
+        <td><button class="btn btn-secondary" (click)="goToDetails(hero.id)">Detail</button></td>
+      </tr>
+    </tbody>
+  </table>
