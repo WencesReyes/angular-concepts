@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          formControlName="name"
+          [ngClass]="{
+            'is-invalid': nameField?.invalid && nameField?.touched
+          }"
+        />
+        @if(nameField?.invalid && nameField?.touched) {
+        <div class="invalid-feedback">{{ getErrorMessage("name") }}</div>
+        }
+      </div>
+      <div class="mb-3">
+        <label for="brandId" class="form-label">Brand</label>
+        <select
+          id="brandId"
+          name="brandId"
+          class="form-select"
+          formControlName="brandId"
+          [ngClass]="{
+            'is-invalid': brandIdField?.invalid && brandIdField?.touched
+          }"
+        >
+          <option value="0">Choose a brand</option>
+          @for(brand of brands; track brand.id) {
+          <option [value]="brand.id">{{ brand.description }}</option>
+
+          }
+        </select>
+
+        @if(brandIdField?.invalid && brandIdField?.touched) {
+        <div class="invalid-feedback">{{ getErrorMessage("brandId") }}</div>
+        }
+      </div>
+      <div class="mb-3 form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="isElite"
+          name="isElite"
+          formControlName="isElite"
+        />
+        <label class="form-check-label" for="isElite">Is a elite hero?</label>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          class="form-control"
+          id="description"
+          name="description"
+          rows="3"
+          formControlName="description"
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="heroForm.invalid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+
+  {{ heroForm.value | json }}
+</div>

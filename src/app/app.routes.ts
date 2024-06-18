@@ -6,6 +6,7 @@ import { EventsComponent } from './pages/events/events.component';
 import { InputOutputComponent } from './pages/input-output/input-output.component';
 import { PipesComponent } from './pages/pipes/pipes.component';
 import { TemplateFormComponent } from './pages/template-form/template-form.component';
+import { ReactiveFormComponent } from './pages/reactive-form/reactive-form.component';
 
 export const routes: Routes = [
   {
@@ -42,5 +43,10 @@ export const routes: Routes = [
     path: 'template-form',
     component: TemplateFormComponent,
     title: 'Template driven form',
+  },
+  {
+    path: 'reactive-form',
+    component: ReactiveFormComponent,
+    title: 'Reactive form',
   },
 ];
