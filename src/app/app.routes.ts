@@ -12,6 +12,7 @@ import { HeroDatailComponent } from './pages/more-routing/pages/hero-datail/hero
 import { Child1Component } from './pages/more-routing/pages/child-1/child-1.component';
 import { Child2Component } from './pages/more-routing/pages/child-2/child-2.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -33,6 +34,7 @@ export const routes: Routes = [
     path: 'life-cicle',
     component: LifeCicleComponent,
     title: 'Life cicle',
+    canActivate: [authGuard],
   },
   {
     path: 'events',
