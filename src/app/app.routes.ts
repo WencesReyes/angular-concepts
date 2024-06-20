@@ -50,7 +50,8 @@ export const routes: Routes = [
   },
   {
     path: 'pipes',
-    component: PipesComponent,
+    loadComponent: () =>
+      import('./pages/pipes/pipes.component').then((m) => m.PipesComponent),
     title: 'Pipes',
   },
   {
